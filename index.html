@@ -1,2 +1,109 @@
-<h1>Word Counter Tool Coming Soon!</h1>
-<p>Working on the final setup...</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            resize: none;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        textarea:focus {
+            border-color: #007bff;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .stat-box {
+            text-align: center;
+        }
+        .stat-box span {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .stat-box label {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Word Counter Tool</h2>
+    <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+    <div class="stats">
+        <div class="stat-box">
+            <span id="wordCount">0</span>
+            <label>Words</label>
+        </div>
+        <div class="stat-box">
+            <span id="charCount">0</span>
+            <label>Characters</label>
+        </div>
+    </div>
+</div>
+
+<script>
+    const textInput = document.getElementById('textInput');
+    const wordCount = document.getElementById('wordCount');
+    const charCount = document.getElementById('charCount');
+
+    textInput.addEventListener('input', () => {
+        const text = textInput.value.trim();
+        
+        // Characters Count
+        charCount.innerText = text.length;
+        
+        // Words Count
+        if (text === '') {
+            wordCount.innerText = 0;
+        } else {
+            const words = text.split(/\s+/);
+            wordCount.innerText = words.length;
+        }
+    });
+</script>
+
+</body>
+                                    </html>
+                                    
